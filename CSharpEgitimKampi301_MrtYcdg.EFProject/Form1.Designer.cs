@@ -63,7 +63,7 @@
             // btnList
             // 
             this.btnList.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnList.Location = new System.Drawing.Point(98, 93);
+            this.btnList.Location = new System.Drawing.Point(98, 174);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(124, 39);
             this.btnList.TabIndex = 2;
@@ -118,7 +118,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LightGreen;
-            this.btnAdd.Location = new System.Drawing.Point(98, 138);
+            this.btnAdd.Location = new System.Drawing.Point(98, 219);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(124, 39);
             this.btnAdd.TabIndex = 8;
@@ -129,7 +129,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
-            this.btnDelete.Location = new System.Drawing.Point(98, 183);
+            this.btnDelete.Location = new System.Drawing.Point(98, 264);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(124, 39);
             this.btnDelete.TabIndex = 9;
@@ -140,7 +140,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Gold;
-            this.btnUpdate.Location = new System.Drawing.Point(98, 228);
+            this.btnUpdate.Location = new System.Drawing.Point(98, 309);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(124, 39);
             this.btnUpdate.TabIndex = 10;
@@ -151,7 +151,7 @@
             // btnGetById
             // 
             this.btnGetById.BackColor = System.Drawing.Color.Cyan;
-            this.btnGetById.Location = new System.Drawing.Point(98, 273);
+            this.btnGetById.Location = new System.Drawing.Point(98, 354);
             this.btnGetById.Name = "btnGetById";
             this.btnGetById.Size = new System.Drawing.Size(124, 39);
             this.btnGetById.TabIndex = 11;
@@ -162,7 +162,7 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.MistyRose;
-            this.btnClear.Location = new System.Drawing.Point(98, 318);
+            this.btnClear.Location = new System.Drawing.Point(98, 399);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(124, 39);
             this.btnClear.TabIndex = 12;

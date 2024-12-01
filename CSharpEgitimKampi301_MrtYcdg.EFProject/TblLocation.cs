@@ -15,10 +15,10 @@ namespace CSharpEgitimKampi301_MrtYcdg.EFProject
     public partial class TblLocation
     {
         public int LocationId { get; set; }
-        public string LocationName { get; set; }
-        public string LocationCountry { get; set; }
-        public Nullable<byte> LocationCapacity { get; set; }
-        public Nullable<decimal> LocationPrice { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public Nullable<byte> Capacity { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public string DayNight { get; set; }
         public Nullable<int> GuideId { get; set; }
     

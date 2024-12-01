@@ -25,9 +25,9 @@ namespace CSharpEgitimKampi301_MrtYcdg.EFProject
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<TblAdmin> TblAdmin { get; set; }
         public virtual DbSet<TblCustomer> TblCustomer { get; set; }
         public virtual DbSet<TblGuide> TblGuide { get; set; }
         public virtual DbSet<TblLocation> TblLocation { get; set; }
-        public virtual DbSet<TblAdmin> TblAdmin { get; set; }
     }
 }

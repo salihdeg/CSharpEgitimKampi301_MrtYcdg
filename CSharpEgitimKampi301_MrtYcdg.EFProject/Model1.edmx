@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EgitimKampiEFTravelDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EgitimKampiEFTravelDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TblAdmin">
           <Key>
             <PropertyRef Name="AdminId" />
@@ -35,10 +35,10 @@
             <PropertyRef Name="LocationId" />
           </Key>
           <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LocationName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LocationCountry" Type="nvarchar" MaxLength="50" />
-          <Property Name="LocationCapacity" Type="tinyint" />
-          <Property Name="LocationPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Capacity" Type="tinyint" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
           <Property Name="DayNight" Type="nvarchar" MaxLength="50" />
           <Property Name="GuideId" Type="int" />
         </EntityType>
@@ -64,10 +64,19 @@
             <End Role="TblLocation" EntitySet="TblLocation" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EgitimKampiEFTravelDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblAdmin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="TblCustomer">
           <Key>
             <PropertyRef Name="CustomerId" />
@@ -91,10 +100,10 @@
             <PropertyRef Name="LocationId" />
           </Key>
           <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LocationCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LocationCapacity" Type="Byte" />
-          <Property Name="LocationPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Byte" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="DayNight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GuideId" Type="Int32" />
           <NavigationProperty Name="TblGuide" Relationship="Self.FK__TblLocati__Guide__286302EC" FromRole="TblLocation" ToRole="TblGuide" />
@@ -112,6 +121,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EgitimKampiEFTravelDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" />
           <EntitySet Name="TblCustomer" EntityType="Self.TblCustomer" />
           <EntitySet Name="TblGuide" EntityType="Self.TblGuide" />
           <EntitySet Name="TblLocation" EntityType="Self.TblLocation" />
@@ -119,29 +129,29 @@
             <End Role="TblGuide" EntitySet="TblGuide" />
             <End Role="TblLocation" EntitySet="TblLocation" />
           </AssociationSet>
-          <EntitySet Name="TblAdmin" EntityType="EgitimKampiEFTravelDbModel.TblAdmin" />
         </EntityContainer>
-        <EntityType Name="TblAdmin">
-          <Key>
-            <PropertyRef Name="AdminId" />
-          </Key>
-          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AdminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EgitimKampiEFTravelDbModelStoreContainer" CdmEntityContainer="EgitimKampiEFTravelDbEntities">
+          <EntitySetMapping Name="TblAdmin">
+            <EntityTypeMapping TypeName="EgitimKampiEFTravelDbModel.TblAdmin">
+              <MappingFragment StoreEntitySet="TblAdmin">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TblCustomer">
             <EntityTypeMapping TypeName="EgitimKampiEFTravelDbModel.TblCustomer">
               <MappingFragment StoreEntitySet="TblCustomer">
-                <ScalarProperty Name="CustomerBalance" ColumnName="CustomerBalance" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="CustomerSurname" ColumnName="CustomerSurname" />
+                <ScalarProperty Name="CustomerBalance" ColumnName="CustomerBalance" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -158,21 +168,12 @@
             <EntityTypeMapping TypeName="EgitimKampiEFTravelDbModel.TblLocation">
               <MappingFragment StoreEntitySet="TblLocation">
                 <ScalarProperty Name="LocationId" ColumnName="LocationId" />
-                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
-                <ScalarProperty Name="LocationCountry" ColumnName="LocationCountry" />
-                <ScalarProperty Name="LocationCapacity" ColumnName="LocationCapacity" />
-                <ScalarProperty Name="LocationPrice" ColumnName="LocationPrice" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="DayNight" ColumnName="DayNight" />
                 <ScalarProperty Name="GuideId" ColumnName="GuideId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblAdmin">
-            <EntityTypeMapping TypeName="EgitimKampiEFTravelDbModel.TblAdmin">
-              <MappingFragment StoreEntitySet="TblAdmin">
-                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
-                <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
-                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

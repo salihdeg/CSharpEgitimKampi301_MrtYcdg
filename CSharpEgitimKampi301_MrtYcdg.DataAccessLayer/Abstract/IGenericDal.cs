@@ -12,6 +12,6 @@ namespace CSharpEgitimKampi301_MrtYcdg.DataAccessLayer.Abstract
         T GetById(int id);
         void Add(T entity);
         void Update(T entity);
-        void Delete(int id);
+        void Delete(T entity);
     }
 }
